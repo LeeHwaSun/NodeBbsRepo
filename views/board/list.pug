@@ -1,0 +1,21 @@
+// list.pug
+
+doctype html
+html
+    head
+        title 게시판 목록
+    body
+        h1 게시판 목록
+        table
+            tr
+                td 게시글 번호
+                td 제목
+                td 작성자
+                td 작성일자
+            -for (let i = 0; i < data.length; i++)
+                tr
+                    td #{data[i].num}
+                    td #{data[i].title}
+                    td #{data[i].name}
+                    td #{data[i].reg_date}                
+        a(href="/board/post") 게시글 작성
