@@ -19,4 +19,4 @@ jobs:
           script: |
             cd /home/ubuntu
             git pull origin
-            npm install
+            sudo npm install
