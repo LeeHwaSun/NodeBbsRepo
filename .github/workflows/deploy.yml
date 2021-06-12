@@ -1,0 +1,22 @@
+name: Node App Deployment
+
+on:
+  push: 
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-18.0.4
+    
+    steps:
+      - name: Deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SECRET_IP }}
+          username: ${{ secrets.SECRET_ID }}
+          key: ${{ secrets.SECRET_KEY }}
+          port: ${{ secrets.SECRET_PORT }}
+          script: |
+            cd /home/ubuntu
+            git pull origin
+            npm install
